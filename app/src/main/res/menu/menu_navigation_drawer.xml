@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_colors"
+            android:icon="@drawable/ic_color_list_black"
+            android:title="@string/menu_color_list" />
+        <item
+            android:id="@+id/menu_palette"
+            android:icon="@drawable/ic_palette_black"
+            android:title="@string/menu_palette" />
+        <item
+            android:id="@+id/menu_about"
+            android:icon="@drawable/ic_info_black"
+            android:title="@string/menu_about" />
+    </group>
+
+</menu>

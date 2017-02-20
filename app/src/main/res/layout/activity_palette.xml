@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/palette_activity_drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.PaletteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="@dimen/toolbar_elevation">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/palette_activity_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:elevation="@dimen/toolbar_elevation"
+                app:theme="@style/AppTheme.Toolbar"
+                app:title="@string/palette_activity_name"
+                app:titleTextAppearance="@style/Toolbar.TitleTextAppearance" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/palette_activity_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_normal" />
+
+    </LinearLayout>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/palette_activity_nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/background_normal"
+        app:headerLayout="@layout/nav_header_main"
+        app:itemBackground="@drawable/navigation_item_background_states"
+        app:itemIconTint="@color/navigation_item_color_states"
+        app:itemTextColor="@color/navigation_item_color_states"
+        app:menu="@menu/menu_navigation_drawer" />
+
+</android.support.v4.widget.DrawerLayout>

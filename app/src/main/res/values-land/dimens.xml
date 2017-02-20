@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="nav_header_height">108dp</dimen>
+    <dimen name="color_list_item_height">84dp</dimen>
+    <dimen name="color_info_list_item_height">108dp</dimen>
+    <dimen name="color_info_margin">30dp</dimen>
+    <dimen name="preview_activity_toolbar_height">140dp</dimen>
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="toolbar_elevation">4dp</dimen>
+    <dimen name="nav_header_height">128dp</dimen>
+    <dimen name="color_list_item_height">108dp</dimen>
+    <dimen name="color_info_list_item_height">128dp</dimen>
+    <dimen name="color_info_margin">16dp</dimen>
+    <dimen name="preview_activity_toolbar_height">192dp</dimen>
+
+</resources>

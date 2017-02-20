@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_primary">#607D8B</color>
+    <color name="color_primary_dark">#455A64</color>
+    <color name="color_accent">#E91E63</color>
+    <color name="control_normal">#DADDE0</color>
+    <color name="control_highlight">#8997AD</color>
+
+    <color name="divider_color">#CCCCCC</color>
+    <color name="text_hint">#AAAAAA</color>
+    <color name="text_normal">#333333</color>
+    <color name="text_gray">#777777</color>
+    <color name="background_normal">#FAFAFA</color>
+
+</resources>

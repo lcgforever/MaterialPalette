@@ -1,0 +1,49 @@
+<resources>
+
+    <string name="app_name">Material Palette</string>
+
+    <!-- Menu -->
+    <string name="menu_color_list">Colors</string>
+    <string name="menu_palette">Palette</string>
+    <string name="menu_about">About</string>
+    <string name="menu_invert_color">Invert Text Color</string>
+    <string name="menu_preview">Preview</string>
+
+    <!-- Navigation Drawer -->
+    <string name="action_open_drawer">Open drawer</string>
+    <string name="action_close_drawer">Close drawer</string>
+
+    <!-- Main Activity -->
+    <string name="main_activity_name">Colors</string>
+
+    <!-- Color Info Activity -->
+    <string name="rgb_format_text">RGB: %1$d, %2$d, %3$d</string>
+    <string name="color_copy_message">Color \"%1$s\" copied: %2$s %3$s</string>
+    <string name="hint_dialog_title">Hint</string>
+    <string name="hint_dialog_message">Click on the card to copy that color value to clipboard!</string>
+
+    <!-- Palette Activity -->
+    <string name="palette_activity_name">Palette</string>
+
+    <!-- Preview Activity -->
+    <string name="preview_activity_name">Preview Example</string>
+    <string name="preview_account_name">Harry Potter</string>
+    <string name="preview_account_email">harry.potter@hogwarts.edu</string>
+    <string name="preview_edit_text_hint">Enter some magic</string>
+    <string name="preview_save_button">Save</string>
+    <string name="preview_check_box_text">Try Butterbeer</string>
+    <string name="preview_switch_text">Watch Quidditch Matches</string>
+    <string name="preview_empty_text_error_message">Please enter something!</string>
+    <string name="preview_snackbar_message_format">Age \"%s\" saved!</string>
+    <string name="preview_snackbar_undo_action">Undo</string>
+    <string name="preview_select_age_text">Select age</string>
+
+    <!-- About App Activity -->
+    <string name="about_app_activity_title">About App</string>
+    <string name="about_app_activity_app_version">Version</string>
+    <string name="about_app_activity_copyright">Copyright</string>
+
+    <!-- Copyright Activity -->
+    <string name="copyright_activity_title">Copyright</string>
+
+</resources>

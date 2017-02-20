@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/color_list_item_height"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackgroundBorderless">
+
+    <TextView
+        android:id="@+id/color_name_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fontFamily="@string/roboto_medium"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+</RelativeLayout>
