@@ -29,12 +29,15 @@ public class ColorInfoListAdapter extends RecyclerView.Adapter<ColorInfoListAdap
     private ColorInfoClickListener colorInfoClickListener;
     private int textColor = Color.WHITE;
 
-    public ColorInfoListAdapter(Context context, List<ColorInfo> colorInfoList, ColorInfoClickListener colorInfoClickListener) {
+    public ColorInfoListAdapter(Context context, String colorName, List<ColorInfo> colorInfoList, ColorInfoClickListener colorInfoClickListener) {
         layoutInflater = LayoutInflater.from(context);
         clipboardManager = (ClipboardManager) context.getSystemService(Context.CLIPBOARD_SERVICE);
         this.colorInfoList = colorInfoList;
         this.colorInfoClickListener = colorInfoClickListener;
         rgbFormatString = context.getString(R.string.rgb_format_text);
+        if (context.getString(R.string.white_color_name).toLowerCase().equals(colorName.toLowerCase())) {
+            textColor = Color.BLACK;
+        }
     }
 
     @Override

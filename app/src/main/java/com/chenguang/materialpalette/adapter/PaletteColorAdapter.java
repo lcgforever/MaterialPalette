@@ -20,11 +20,12 @@ import java.util.List;
 
 public class PaletteColorAdapter extends RecyclerView.Adapter<PaletteColorAdapter.PaletteColorViewHolder> {
 
-    private static final String[] PALETTE_COLOR_NAMES = {"Primary Color", "Primary Dark Color", "Accent Color", "Primary Text Color", "Secondary Text Color"};
+    private static final int NUMBER_OF_ITEMS = 5;
 
     private Context context;
     private LayoutInflater layoutInflater;
     private List<MaterialDesignColor> colorList;
+    private String[] paletteOptionNames;
     private int[] selectedColorPositions;
     private int[] selectedColorInfoPositions;
     private int[] selectedColors;
@@ -35,9 +36,15 @@ public class PaletteColorAdapter extends RecyclerView.Adapter<PaletteColorAdapte
         layoutInflater = LayoutInflater.from(context);
         this.colorList = colorList;
         colorInfoTextColor = Color.WHITE;
-        selectedColorPositions = new int[PALETTE_COLOR_NAMES.length];
-        selectedColorInfoPositions = new int[PALETTE_COLOR_NAMES.length];
-        selectedColors = new int[PALETTE_COLOR_NAMES.length];
+        paletteOptionNames = new String[NUMBER_OF_ITEMS];
+        paletteOptionNames[0] = context.getString(R.string.primary_color_palette_name);
+        paletteOptionNames[1] = context.getString(R.string.primary_dark_color_palette_name);
+        paletteOptionNames[2] = context.getString(R.string.accent_color_palette_name);
+        paletteOptionNames[3] = context.getString(R.string.primary_text_color_palette_name);
+        paletteOptionNames[4] = context.getString(R.string.secondary_text_color_palette_name);
+        selectedColorPositions = new int[NUMBER_OF_ITEMS];
+        selectedColorInfoPositions = new int[NUMBER_OF_ITEMS];
+        selectedColors = new int[NUMBER_OF_ITEMS];
         for (int i = 0; i < selectedColorPositions.length; i++) {
             selectedColorPositions[i] = i;
             selectedColorInfoPositions[i] = 0;
@@ -57,7 +64,7 @@ public class PaletteColorAdapter extends RecyclerView.Adapter<PaletteColorAdapte
 
     @Override
     public void onBindViewHolder(PaletteColorViewHolder holder, int position) {
-        holder.paletteNameTextView.setText(PALETTE_COLOR_NAMES[position]);
+        holder.paletteNameTextView.setText(paletteOptionNames[position]);
         holder.colorSpinner.setSelection(selectedColorPositions[position]);
         MaterialDesignColor selectedColor = colorList.get(selectedColorPositions[position]);
         List<MaterialDesignColor.ColorInfo> colorInfoList = selectedColor.getColorInfoList();
@@ -66,7 +73,7 @@ public class PaletteColorAdapter extends RecyclerView.Adapter<PaletteColorAdapte
 
     @Override
     public int getItemCount() {
-        return PALETTE_COLOR_NAMES.length;
+        return NUMBER_OF_ITEMS;
     }
 
     public void invertTextColor() {

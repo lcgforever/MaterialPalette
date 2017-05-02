@@ -22,6 +22,7 @@ public class ColorListAdapter extends RecyclerView.Adapter<ColorListAdapter.Colo
     private LayoutInflater layoutInflater;
     private List<MaterialDesignColor> colorList;
     private ColorClickListener colorClickListener;
+    private String whiteColorNameLowerCase;
 
     public ColorListAdapter(Context context,
                             List<MaterialDesignColor> colorList,
@@ -29,6 +30,7 @@ public class ColorListAdapter extends RecyclerView.Adapter<ColorListAdapter.Colo
         layoutInflater = LayoutInflater.from(context);
         this.colorList = colorList;
         this.colorClickListener = colorClickListener;
+        whiteColorNameLowerCase = context.getString(R.string.white_color_name).toLowerCase();
     }
 
     @Override
@@ -40,8 +42,14 @@ public class ColorListAdapter extends RecyclerView.Adapter<ColorListAdapter.Colo
     @Override
     public void onBindViewHolder(ColorViewHolder holder, int position) {
         MaterialDesignColor materialDesignColor = colorList.get(position);
-        holder.colorNameTextView.setText(materialDesignColor.getName());
+        String colorName = materialDesignColor.getName();
+        holder.colorNameTextView.setText(colorName);
         holder.colorNameTextView.setBackgroundColor(Color.parseColor(materialDesignColor.getMainColor()));
+        if (whiteColorNameLowerCase.equals(colorName.toLowerCase())) {
+            holder.colorNameTextView.setTextColor(Color.BLACK);
+        } else {
+            holder.colorNameTextView.setTextColor(Color.WHITE);
+        }
     }
 
     @Override

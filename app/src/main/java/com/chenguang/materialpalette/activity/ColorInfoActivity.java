@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.CoordinatorLayout;
@@ -21,6 +23,8 @@ import com.chenguang.materialpalette.R;
 import com.chenguang.materialpalette.adapter.ColorInfoListAdapter;
 import com.chenguang.materialpalette.data.MaterialDesignColor;
 
+import java.util.List;
+
 public class ColorInfoActivity extends AppCompatActivity implements ColorInfoListAdapter.ColorInfoClickListener {
 
     private static final String EXTRA_MATERIAL_DESIGN_COLOR = "EXTRA_MATERIAL_DESIGN_COLOR";
@@ -28,6 +32,7 @@ public class ColorInfoActivity extends AppCompatActivity implements ColorInfoLis
     private CoordinatorLayout coordinatorLayout;
     private ColorInfoListAdapter colorInfoListAdapter;
     private MaterialDesignColor materialDesignColor;
+    private boolean isBlackOrWhite;
 
     public static void start(Context context, MaterialDesignColor materialDesignColor) {
         Intent intent = new Intent(context, ColorInfoActivity.class);
@@ -46,19 +51,33 @@ public class ColorInfoActivity extends AppCompatActivity implements ColorInfoLis
             materialDesignColor = (MaterialDesignColor) savedInstanceState.getSerializable(EXTRA_MATERIAL_DESIGN_COLOR);
         }
 
+        String colorName = materialDesignColor.getName();
+        isBlackOrWhite = getString(R.string.black_color_name).toLowerCase().equals(colorName.toLowerCase())
+                || getString(R.string.white_color_name).toLowerCase().equals(colorName.toLowerCase());
+        List<MaterialDesignColor.ColorInfo> colorInfoList = materialDesignColor.getColorInfoList();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.color_info_activity_toolbar);
         setSupportActionBar(toolbar);
         ActionBar supportActionBar = getSupportActionBar();
         if (supportActionBar != null) {
-            supportActionBar.setTitle(materialDesignColor.getName());
+            supportActionBar.setTitle(colorName);
             supportActionBar.setDisplayHomeAsUpEnabled(true);
             supportActionBar.setHomeButtonEnabled(true);
+        }
+
+        if (!isBlackOrWhite) {
+            String mainColorHex = colorInfoList.get(materialDesignColor.getIndexForShade("500")).getHex();
+            toolbar.setBackgroundColor(Color.parseColor(mainColorHex));
+            if (!isBlackOrWhite && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                String darkColorHex = colorInfoList.get(materialDesignColor.getIndexForShade("700")).getHex();
+                getWindow().setStatusBarColor(Color.parseColor(darkColorHex));
+            }
         }
 
         coordinatorLayout = (CoordinatorLayout) findViewById(R.id.color_info_activity_container);
         RecyclerView colorInfoRecyclerView = (RecyclerView) findViewById(R.id.color_info_activity_recycler_view);
         colorInfoRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        colorInfoListAdapter = new ColorInfoListAdapter(this, materialDesignColor.getColorInfoList(), this);
+        colorInfoListAdapter = new ColorInfoListAdapter(this, colorName, colorInfoList, this);
         colorInfoRecyclerView.setAdapter(colorInfoListAdapter);
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -77,6 +96,8 @@ public class ColorInfoActivity extends AppCompatActivity implements ColorInfoLis
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_color_info, menu);
+        MenuItem invertMenuItem = menu.findItem(R.id.action_invert_color);
+        invertMenuItem.setVisible(!isBlackOrWhite);
         return true;
     }
 

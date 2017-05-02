@@ -21,9 +21,16 @@
     <string name="color_copy_message">Color \"%1$s\" copied: %2$s %3$s</string>
     <string name="hint_dialog_title">Hint</string>
     <string name="hint_dialog_message">Click on the card to copy that color value to clipboard!</string>
+    <string name="black_color_name">Black</string>
+    <string name="white_color_name">White</string>
 
     <!-- Palette Activity -->
     <string name="palette_activity_name">Palette</string>
+    <string name="primary_color_palette_name">Primary Color (Toolbar)</string>
+    <string name="primary_dark_color_palette_name">Primary Dark Color (Status Bar)</string>
+    <string name="accent_color_palette_name">Accent Color (FAB, Checkbox, etc)</string>
+    <string name="primary_text_color_palette_name">Primary Text Color (Main Text)</string>
+    <string name="secondary_text_color_palette_name">Secondary Text Color (Hint, sub-details, etc)</string>
 
     <!-- Preview Activity -->
     <string name="preview_activity_name">Preview Example</string>

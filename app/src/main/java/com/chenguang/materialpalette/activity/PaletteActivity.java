@@ -54,7 +54,7 @@ public class PaletteActivity extends AppCompatActivity implements NavigationView
                 } else if (navigationView.getMenu().findItem(R.id.menu_about).isChecked()) {
                     AboutAppActivity.start(PaletteActivity.this);
                 }
-                navigationView.setCheckedItem(R.id.menu_colors);
+                navigationView.setCheckedItem(R.id.menu_palette);
             }
         };
         navigationDrawerLayout.addDrawerListener(navigationDrawerToggle);
